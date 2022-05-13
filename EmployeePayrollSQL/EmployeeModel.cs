@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeePayrollSQL
 {
-    internal class EmployeeModel
+    public class EmployeeModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -23,4 +23,3 @@ namespace EmployeePayrollSQL
         public int Dept_Id { get; set; }
     }
 }
-
