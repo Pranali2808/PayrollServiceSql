@@ -59,3 +59,21 @@ Department varchar(100)
 insert into employee_payroll (Name, Basic_pay, StartDate, Gender, Phone, Address, Department, Deductions, Taxable_Pay, Income_Tax,Net_pay)
 					  values ('Payal', 80000.00, '2022-01-01', 'F', 8899776655, 'Nashik', 'CS',2000.00, 62000.00, 3000.00,0);
 update employee_payroll set Net_Pay = (Basic_Pay-Deductions-Taxable_Pay-Income_Tax);
+-----//Stored Procedure//--------------------------------------------------------------
+CREATE PROCEDURE spAddEmployees
+
+@Name varchar(100),
+@Startdate Date,
+@Gender char(1),
+@Phone bigint,
+@Department varchar(100),
+@Address varchar(100),
+@Basic_Pay float,
+@Deductions float,
+@Taxable_pay float,
+@Income_tax float,
+@Net_pay float
+as
+insert into employee_payroll (Name, Startdate, Gender, Phone, Address, Department, Basic_Pay, Deductions, Taxable_pay, Income_tax, Net_pay)
+	values(@Name, @Startdate, @Gender, @Phone, @Address, @Department, @Basic_Pay, @Deductions, @Taxable_pay, @Income_tax, @Net_pay);
+
