@@ -14,7 +14,7 @@ namespace EmployeePayrollSQL
             EmployeeRepo repo = new EmployeeRepo();
             try
             {
-                Console.WriteLine("Choose option or press 0 for exit\n1:Retrieve Data\n2:Add Data\n3:Update Datas\n4:Delete Employee");
+                Console.WriteLine("Choose option or press 0 for exit\n1:Retrieve Data\n2:Add Data\n3:Update Datas\n4:Delete Employee\n5:Retriew employee with data range");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -59,6 +59,10 @@ namespace EmployeePayrollSQL
                         Console.WriteLine("Enter name");
                         model2.Name = Console.ReadLine();
                         repo.DeleteEmployee(model2);
+                        break;
+                    case 5:
+                        string query = "select * from employee_payroll where StartDate between cast ('2018-01-01' as date) and GETDATE()";
+                        repo.GetEmployeesWithDataAdapter(query);
                         break;
                 }
                 Console.ReadLine();
