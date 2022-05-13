@@ -76,4 +76,10 @@ CREATE PROCEDURE spAddEmployees
 as
 insert into employee_payroll (Name, Startdate, Gender, Phone, Address, Department, Basic_Pay, Deductions, Taxable_pay, Income_tax, Net_pay)
 	values(@Name, @Startdate, @Gender, @Phone, @Address, @Department, @Basic_Pay, @Deductions, @Taxable_pay, @Income_tax, @Net_pay);
-
+--------//update data//------------------------------
+create procedure spUpdateEmployee
+@Name varchar(100),
+@Id int,
+@Basic_Pay float
+as
+update employee_payroll set Basic_pay = @Basic_Pay where Id=@Id and Name= @Name;

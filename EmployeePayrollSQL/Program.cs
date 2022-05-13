@@ -14,7 +14,7 @@ namespace EmployeePayrollSQL
             EmployeeRepo repo = new EmployeeRepo();
             try
             {
-                Console.WriteLine("Choose option or press 0 for exit\n1:Retrieve Data\n2:Add Data\n");
+                Console.WriteLine("Choose option or press 0 for exit\n1:Retrieve Data\n2:Add Data\n3:Update Data");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -42,6 +42,16 @@ namespace EmployeePayrollSQL
                         };
                         repo.AddEmployee(model);
                         break;
+                    case 3:
+                        EmployeeModel model1 = new EmployeeModel();
+                        Console.WriteLine("Enter id of employee whose data you want to update");
+                        model1.Id = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter name");
+                        model1.Name = Console.ReadLine();
+                        Console.WriteLine("Enter new BasicPay");
+                        model1.Basic_Pay = Convert.ToDouble(Console.ReadLine());
+                        repo.UpdateEmployee(model1);
+                        break;
                 }
                 Console.ReadLine();
             }
@@ -50,6 +60,10 @@ namespace EmployeePayrollSQL
                 Console.WriteLine(ex.Message);
             }
         }
-
     }
 }
+               
+        
+
+   
+
